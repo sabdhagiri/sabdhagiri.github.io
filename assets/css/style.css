@@ -1,0 +1,162 @@
+/*
+ * =================================================
+ * Global Styles for sabdhagiri.github.io
+ * Theme: Casual, Cool, Geeky. Minimalist structure with tech-forward accents.
+ * =================================================
+ * Key elements: Monospace fonts, distinct sections, blue/green accents (geeky feel).
+ */
+
+/* Base Reset */
+body {
+    font-family: 'Space Mono', monospace, sans-serif;
+    background-color: #1d1d2e; /* Dark, cool background */
+    color: #e0e1dd; /* Light text */
+    line-height: 1.6;
+}
+
+/* Utility classes for simplicity */
+.container {
+    max-width: 1100px;
+    margin: 0 auto;
+    padding-left: 15px;
+    padding-right: 15px;
+}
+
+/* Header/Navigation */
+.site-header {
+    background-color: #25253a; /* Slightly darker header */
+    padding: 15px 0;
+    border-bottom: 2px solid #4a4a6a; /* Subtle divider */
+}
+
+.site-header .container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.site-title {
+    color: #00ff99; /* Neon/geeky accent color */
+    text-decoration: none;
+    font-size: 1.8rem;
+    font-weight: 700;
+}
+
+.site-nav a {
+    color: #c9d1d9;
+    text-decoration: none;
+    margin-left: 20px;
+    transition: color 0.2s;
+}
+
+.site-nav a:hover {
+    color: #00ff99;
+    text-decoration: underline;
+}
+
+/* Hero Section */
+.hero-section {
+    padding: 100px 0;
+    text-align: center;
+    /* Subtle gradient background for depth */
+    background: radial-gradient(circle at center, rgba(33, 255, 153, 0.05) 0%, transparent 50%);
+}
+
+.hero-section h1 {
+    font-size: 3.5rem;
+    margin-bottom: 0.3rem;
+    color: #ffffff;
+}
+
+.lead {
+    font-size: 1.5rem;
+    margin-bottom: 30px;
+    color: #a0aec0;
+}
+
+/* Buttons */
+.btn {
+    padding: 10px 25px;
+    margin: 10px;
+    border-radius: 4px;
+    text-decoration: none;
+    transition: all 0.2s;
+    font-weight: 700;
+}
+
+.btn-primary {
+    background-color: #00ff99;
+    color: #1d1d2e;
+    border: 2px solid #00ff99;
+}
+
+.btn-primary:hover {
+    background-color: #00d97d;
+    box-shadow: 0 0 15px rgba(0, 255, 153, 0.5);
+}
+
+.btn-secondary {
+    background-color: transparent;
+    color: #00ff99;
+    border: 2px solid #00ff99;
+}
+
+.btn-secondary:hover {
+    background-color: #25253a;
+}
+
+/* General Content Styling */
+section {
+    padding: 60px 0;
+    border-bottom: 1px solid #2f2f44;
+}
+
+h2 {
+    color: #00ff99;
+    border-bottom: 2px solid #3a3a55;
+    display: inline-block;
+    padding-bottom: 5px;
+}
+
+/* Skills tags */
+.skills span {
+    display: inline-block;
+    background-color: #25253a;
+    color: #00ff99;
+    padding: 8px 15px;
+    margin: 5px;
+    border-radius: 20px;
+    border: 1px solid #00ff9940;
+    cursor: pointer;
+    transition: all 0.2s;
+}
+.skills span:hover {
+    background-color: #00ff9910;
+    transform: scale(1.05);
+}
+
+/* Footer */
+.site-footer {
+    background-color: #25253a;
+    border-top: 1px solid #3a3a55;
+    color: #9aa0c0;
+}
+
+/* Mobile Adjustments */
+@media (max-width: 768px) {
+    .site-header .container {
+        flex-direction: column;
+        text-align: center;
+    }
+    .site-nav {
+        margin-top: 10px;
+        padding: 0;
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+    }
+    .site-nav a {
+        margin: 5px 10px;
+        display: block; /* Stack links on small screens */
+    }
+}

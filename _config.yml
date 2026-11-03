@@ -1,0 +1,10 @@
+---
+title: sabdhagiri.github.io
+email: sabdhagiri@example.com
+description: >-
+  Geeky journal and portfolio for sabdhagiri.
+baseurl: "" # The subdirectories where the site is located
+url: "https://sabdhagiri.github.io"
+permalink: /:title/:year/:month/:day/:title/
+skin: casual-cool # Custom CSS class for styling
+---
