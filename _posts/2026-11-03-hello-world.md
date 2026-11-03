@@ -1,6 +1,7 @@
 ---
 layout: post
 title: "Hello, World"
+date: 2026-11-03 09:00:00 -08:00
 tags: [meta]
 ---
 
