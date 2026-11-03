@@ -11,9 +11,9 @@ permalink: /journal/:year/:month/:title/
 # Resume PDF — drop your file at this path and the Resume buttons will download it.
 resume_pdf: /assets/resume.pdf
 
-# Contact form endpoint. Create a free form at https://formspree.io,
-# then replace YOUR_FORM_ID with the ID it gives you (e.g. "xyzabcde").
-contact_form_endpoint: "https://formspree.io/f/YOUR_FORM_ID"
+# Contact form submits to this Google Form (responses appear in Google Forms / Sheets).
+# Field entry IDs are wired up in contact/index.html.
+google_form_id: "1FAIpQLSdukNK1nnDqoHMR1lLDzyOTbg6d_wHrQ25lQxR6heazz4NCiw"
 
 markdown: kramdown
 

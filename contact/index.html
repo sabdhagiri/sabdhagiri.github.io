@@ -9,25 +9,31 @@ permalink: /contact/
     <p class="lead">Have a question, an opportunity, or just want to say hi? Send a message.</p>
 </div>
 
-<form class="contact-form" id="contact-form" action="{{ site.contact_form_endpoint }}" method="POST">
+<!-- Submits to Google Forms. Field names are the form's entry IDs; Subject options must match the form exactly. -->
+<form class="contact-form" id="contact-form" action="https://docs.google.com/forms/d/e/{{ site.google_form_id }}/formResponse" method="POST">
     <label>
         <span>Name</span>
-        <input type="text" name="name" required autocomplete="name">
+        <input type="text" name="entry.1109176861" required autocomplete="name">
     </label>
     <label>
         <span>Email</span>
-        <input type="email" name="email" required autocomplete="email">
+        <input type="email" name="entry.1902582125" required autocomplete="email">
     </label>
     <label>
         <span>Subject</span>
-        <input type="text" name="_subject" placeholder="What's this about?">
+        <select name="entry.59233163" required>
+            <option value="General Inquiry">General Inquiry</option>
+            <option value="Project Collaboration">Project Collaboration</option>
+            <option value="Bug Report">Bug Report</option>
+            <option value="Other">Other</option>
+        </select>
     </label>
     <label>
         <span>Message</span>
-        <textarea name="message" rows="7" required></textarea>
+        <textarea name="entry.472087598" rows="7" required></textarea>
     </label>
-    <!-- Honeypot field to catch spam bots -->
-    <input type="text" name="_gotcha" class="hp" tabindex="-1" autocomplete="off">
+    <!-- Honeypot (no name, so it is never sent): bots that fill it are silently ignored -->
+    <input type="text" id="hp" class="hp" tabindex="-1" autocomplete="off" aria-hidden="true">
     <button type="submit" class="btn btn-primary">Send Message</button>
     <p class="form-status" id="form-status" role="status" aria-live="polite"></p>
 </form>
@@ -38,22 +44,24 @@ permalink: /contact/
     var status = document.getElementById('form-status');
     form.addEventListener('submit', function (e) {
         e.preventDefault();
+        if (document.getElementById('hp').value) return;
         var button = form.querySelector('button');
         button.disabled = true;
         status.className = 'form-status';
         status.textContent = 'Sending…';
+        // Google Forms doesn't allow cross-origin reads, so the response is opaque;
+        // a resolved request means it reached Google.
         fetch(form.action, {
             method: 'POST',
-            body: new FormData(form),
-            headers: { 'Accept': 'application/json' }
-        }).then(function (res) {
-            if (!res.ok) throw new Error(res.status);
+            mode: 'no-cors',
+            body: new URLSearchParams(new FormData(form))
+        }).then(function () {
             form.reset();
             status.className = 'form-status success';
             status.textContent = 'Thanks! Your message was sent. I\'ll get back to you soon.';
         }).catch(function () {
             status.className = 'form-status error';
-            status.textContent = 'Sorry, something went wrong. Please try again later.';
+            status.textContent = 'Sorry, something went wrong. Please check your connection and try again.';
         }).finally(function () {
             button.disabled = false;
         });
