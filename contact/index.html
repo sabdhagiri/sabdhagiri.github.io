@@ -9,7 +9,7 @@ permalink: /contact/
     <p class="lead">Have a question, an opportunity, or just want to say hi? Send a message.</p>
 </div>
 
-<!-- Submits to Google Forms. Field names are the form's entry IDs; Subject options must match the form exactly. -->
+<!-- Submits to Google Forms. Field names are the form's entry IDs. -->
 <form class="contact-form" id="contact-form" action="https://docs.google.com/forms/d/e/{{ site.google_form_id }}/formResponse" method="POST">
     <label>
         <span>Name</span>
@@ -21,12 +21,7 @@ permalink: /contact/
     </label>
     <label>
         <span>Subject</span>
-        <select name="entry.59233163" required>
-            <option value="General Inquiry">General Inquiry</option>
-            <option value="Project Collaboration">Project Collaboration</option>
-            <option value="Bug Report">Bug Report</option>
-            <option value="Other">Other</option>
-        </select>
+        <input type="text" name="entry.59233163" placeholder="What's this about?">
     </label>
     <label>
         <span>Message</span>
