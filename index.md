@@ -14,16 +14,18 @@ title: sabdhagiri
 
 <section class="bio py-5">
     <div class="container">
-        <h2 class="text-center mb-4">About Me</h2>
+        <h2 class="text-center mb-4"><h2>Core Expertise</h2></h2>
         <p class="lead text-center max-width-800 mx-auto">
-            Game developer and full-stack enthusiast with a passion for building robust systems, from decentralized protocols to pixel-perfect user interfaces. I write about what I learn—the intersection of code, culture, and creativity.
+            I specialize in building self-healing platform foundations by integrating Infrastructure-as-Code (IaC), GitOps, and advanced observability patterns (SRE). My focus lies at the intersection of distributed systems engineering, Cloud Governance, and FinOps.
         </p>
         <div class="skills text-center mt-5">
-            <!-- Skills tags will be dynamically added here -->
-            <span>🚀 JavaScript</span> 
-            <span>🧠 Architecture</span> 
-            <span>⚙️ DevOps</span>
-            <span>💡 Creativity</span>
+                    <div class="skills text-center mt-5">
+            <span class="badge bg-primary p-2 m-1">☁️ Multi-Cloud (AWS, GCP, Azure)</span>
+            <span class="badge bg-warning text-dark p-2 m-1">☸️ Kubernetes/EKS/GKE</span>
+            <span class="badge bg-success p-2 m-1">📚 Terraform & Ansible (IaC)</span>
+            <span class="badge bg-danger p-2 m-1">📈 SRE/Observability (Prometheus, Grafana)</span>
+            <span class="badge bg-info p-2 m-1">🧩 Distributed Backend (Python, C#)</span>
+        </div>
         </div>
     </div>
 </section>
