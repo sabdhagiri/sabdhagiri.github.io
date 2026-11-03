@@ -7,8 +7,8 @@ title: sabdhagiri
     <h1>Hello. I'm sabdhagiri.</h1>
     <p class="lead fs-3">Tech Explorer. Content Creator. Always debugging life.</p>
     <div class="button-group">
-        <a href="/portfolio/" class="btn btn-primary btn-lg me-3">View Portfolio</a>
-        <a href="/journal/" class="btn btn-secondary btn-lg">Read Journal</a>
+        <a href="/resume.pdf" class="btn btn-primary btn-lg me-3">Resume</a>
+        <a href="#contact" class="btn btn-secondary btn-lg">Contact</a>
     </div>
 </div>
 
