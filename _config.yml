@@ -1,10 +1,25 @@
----
 title: sabdhagiri.github.io
-email: sabdhagiri@example.com
+author: sabdhagiri
 description: >-
-  Geeky journal and portfolio for sabdhagiri.
-baseurl: "" # The subdirectories where the site is located
+  Resume, journal, and contact for sabdhagiri — SRE, platform engineering, and cloud.
+baseurl: ""
 url: "https://sabdhagiri.github.io"
-permalink: /:title/:year/:month/:day/:title/
-skin: casual-cool # Custom CSS class for styling
----
+
+# Journal posts live in _posts/ as YYYY-MM-DD-title.md
+permalink: /journal/:year/:month/:title/
+
+# Resume PDF — drop your file at this path and the Resume buttons will download it.
+resume_pdf: /assets/resume.pdf
+
+# Contact form endpoint. Create a free form at https://formspree.io,
+# then replace YOUR_FORM_ID with the ID it gives you (e.g. "xyzabcde").
+contact_form_endpoint: "https://formspree.io/f/YOUR_FORM_ID"
+
+markdown: kramdown
+
+exclude:
+  - Gemfile
+  - Gemfile.lock
+  - scripts/
+  - vendor/
+  - README.md

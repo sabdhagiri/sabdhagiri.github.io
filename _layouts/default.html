@@ -3,31 +3,32 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>{{ page.title }} | sabdhagiri.github.io</title>
-    <link rel="stylesheet" href="{{ 'assets/css/style.css' | relative_url }}">
-    <link rel="stylesheet" href="{{ 'assets/css/journal.css' | relative_url }}">
-    <link href="https:// fonts.googleapis.com/css2?family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
+    <title>{% if page.title %}{{ page.title }} | {% endif %}{{ site.title }}</title>
+    <meta name="description" content="{{ page.excerpt | default: site.description | strip_html | strip_newlines | truncate: 160 }}">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="{{ '/assets/css/style.css' | relative_url }}">
 </head>
 <body>
     <header class="site-header">
         <div class="container">
             <a href="{{ '/' | relative_url }}" class="site-title">{{ site.title }}</a>
             <nav class="site-nav">
-                <a href="/portfolio/">Portfolio</a>
-                <a href="/journal/">Journal</a>
-                <a href="/contact/">Contact</a>
+                <a href="{{ '/resume/' | relative_url }}"{% if page.url contains '/resume' %} class="active"{% endif %}>Resume</a>
+                <a href="{{ '/journal/' | relative_url }}"{% if page.url contains '/journal' %} class="active"{% endif %}>Journal</a>
+                <a href="{{ '/contact/' | relative_url }}"{% if page.url contains '/contact' %} class="active"{% endif %}>Contact</a>
             </nav>
         </div>
     </header>
 
-    <main class="container content py-5">
+    <main class="container content">
         {{ content }}
     </main>
 
     <footer class="site-footer">
-        <div class="container text-center py-4">
-            <p>&copy; {{ site.time | date: "%Y" }} sabdhagiri. Built with <a href="https://github.com/jekyll/jekyll" target="_blank">Jekyll</a>.</p>
-            <div class="geek-tag">Casual Cool. Geeks. Code.</div>
+        <div class="container">
+            <p>&copy; {{ site.time | date: "%Y" }} sabdhagiri. Built with <a href="https://jekyllrb.com" target="_blank" rel="noopener">Jekyll</a>.</p>
         </div>
     </footer>
 </body>

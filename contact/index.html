@@ -1,0 +1,62 @@
+---
+layout: default
+title: Contact
+permalink: /contact/
+---
+
+<div class="page-intro">
+    <h1>Contact</h1>
+    <p class="lead">Have a question, an opportunity, or just want to say hi? Send a message.</p>
+</div>
+
+<form class="contact-form" id="contact-form" action="{{ site.contact_form_endpoint }}" method="POST">
+    <label>
+        <span>Name</span>
+        <input type="text" name="name" required autocomplete="name">
+    </label>
+    <label>
+        <span>Email</span>
+        <input type="email" name="email" required autocomplete="email">
+    </label>
+    <label>
+        <span>Subject</span>
+        <input type="text" name="_subject" placeholder="What's this about?">
+    </label>
+    <label>
+        <span>Message</span>
+        <textarea name="message" rows="7" required></textarea>
+    </label>
+    <!-- Honeypot field to catch spam bots -->
+    <input type="text" name="_gotcha" class="hp" tabindex="-1" autocomplete="off">
+    <button type="submit" class="btn btn-primary">Send Message</button>
+    <p class="form-status" id="form-status" role="status" aria-live="polite"></p>
+</form>
+
+<script>
+(function () {
+    var form = document.getElementById('contact-form');
+    var status = document.getElementById('form-status');
+    form.addEventListener('submit', function (e) {
+        e.preventDefault();
+        var button = form.querySelector('button');
+        button.disabled = true;
+        status.className = 'form-status';
+        status.textContent = 'Sending…';
+        fetch(form.action, {
+            method: 'POST',
+            body: new FormData(form),
+            headers: { 'Accept': 'application/json' }
+        }).then(function (res) {
+            if (!res.ok) throw new Error(res.status);
+            form.reset();
+            status.className = 'form-status success';
+            status.textContent = 'Thanks! Your message was sent. I\'ll get back to you soon.';
+        }).catch(function () {
+            status.className = 'form-status error';
+            status.textContent = 'Sorry, something went wrong. Please try again later.';
+        }).finally(function () {
+            button.disabled = false;
+        });
+    });
+})();
+</script>
